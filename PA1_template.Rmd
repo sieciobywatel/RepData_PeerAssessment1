@@ -1,6 +1,6 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
-output: 
+output:
   html_document:
     keep_md: true
 ---
@@ -8,12 +8,27 @@ output:
 
 ## Loading and preprocessing the data
 
+```
+data <- read.csv('activity.csv', header = TRUE)
+clean <- na.omit(data)
+```
+totals <- tapply(clean$steps, clean$date, FUN = sum, na.rm = TRUE)
 
+# histogram
+hist(totals)
 
-## What is mean total number of steps taken per day?
+# calculate mean and median
+mn <- mean(totals, na.rm=TRUE)
+md <- median(totals, na.rm=TRUE)
 
+```
 
+# What is mean total number of steps taken per day?
+The mean of steps taken per day is `mn` and median is `md`
 
+```
+
+# That's all, folks! (forgot about assignment... 10 minuts to deadline)
 ## What is the average daily activity pattern?
 
 
